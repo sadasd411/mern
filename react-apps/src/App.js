@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import PersonCard from './Components/personCard';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <ul>* Run a marathon</ul>
       <ul>* Feed a Dog</ul>
     </li>
+    <PersonCard/>
     </div>
   );
 }
