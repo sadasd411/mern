@@ -4,29 +4,31 @@ const router = express.Router();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-// var faker = require('faker');
-// var users = require('./user.js');
-// var company = require('./company.js');
+var faker = require('faker');
+var User = require('./user');
+var Company = require('./company');
 
-var randomName = faker.name.findName(); // Rowan Nikolaus
-var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-var randomCard = faker.helpers.createCard(); // random contact card
-app.get('/api/', (request,response) =>{
+app.get('/api/user/new', (request,response) =>{
     console.log(request.url);
     console.log(request.body);
-    response.json([
-        {
-        Name: randomName,
-        Email: randomEmail,
-        Card: randomCard
-    },
-       
-    ])
+    const fakeUser = new User();
+    console.log(fakeUser);
+    response.json(fakeUser);
 });
-app.post('/api/', (request,response) =>{
+app.get('/api/company/new', (request,response) =>{
     console.log(request.url);
     console.log(request.body);
-    response.json({Welcome: "Hello devi"});
+    const fakeCompany = new Company();
+    console.log(fakeCompany);
+    response.json(fakeCompany);
+})
+
+app.get('/api/user/company', (request,response) =>{
+    console.log(request.url);
+    console.log(request.body);
+    const fakeUser = new User();
+    const fakeCompany = new Company();
+    response.json({User:fakeUser, Company:fakeCompany});
 })
 
 
