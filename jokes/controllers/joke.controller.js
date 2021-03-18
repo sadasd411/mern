@@ -1,4 +1,4 @@
-const Student = require('../models/joke.model');
+const Joke = require('../models/joke.model');
 
 module.exports={
     helloworld:(req,res)=>{
@@ -12,7 +12,30 @@ module.exports={
         })
         .catch((err) => res.json(err));
     },
-    
+    getJokeById:(req,res) =>{
+      Joke.findById({_id:req.params.id})
+      .then((jokeById) => {
+          console.log(req._id)
+          res.json(jokeById)
+      })
+      .catch((err) => res.json(err));
+  },
+  updateJokeById:(req,res) =>{
+      Joke.updateOne(req.params.id,req.body,{new:true})
+      .then((jokeById) => {
+          console.log(req.params.id)
+          res.json(jokeById)
+      })
+      .catch((err) => res.json(err));
+  },
+  deleteJokeById:(req,res) =>{
+    Joke.findByIdAndRemove(req.params.id)
+    .then((jokeById) => {
+        console.log(req.params.id)
+        res.json(jokeById)
+    })
+    .catch((err) => res.json(err));
+},
     createJoke: (req, res) => {
         console.log(req.body);
     
