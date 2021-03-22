@@ -12,6 +12,7 @@ const ProductForm =() =>{
 
     return(
         <form onSubmit = {onSubmitHandler}>
+            <h2>Product Manager</h2>
             <div>
                 <label>Title</label>
                 <input type = "text" />
@@ -23,6 +24,10 @@ const ProductForm =() =>{
             <div>
                 <label>Description</label>
                 <input type = "text" />
+            </div>
+            <div>
+               
+                <input type = "Submit"  value="Create"/>
             </div>
         </form>
         )
