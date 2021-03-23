@@ -1,11 +1,11 @@
-const ProductManager = require('../models/productManager.model');
+const Product = require('../models/productManager.model');
 
 module.exports={
     helloworld:(req,res)=>{
         return res.json("Hello world Devi!");
     },
     getAllProducts:(req,res) =>{
-        ProductManager.find({})
+        Product.find({})
         .then((allProductArray) => {
             console.log(allProductArray)
             res.json(allProductArray)
@@ -13,18 +13,26 @@ module.exports={
         .catch((err) => res.json(err));
     },
     
+    getDetails:(req,res) =>{
+      Product.findById({_id:req.params.id})
+        .then((details) => {
+            console.log(details)
+            res.json(details)
+        })
+        .catch((err) => res.json(err));
+    },
   
-    createProductManager: (req, res) => {
+    createProduct: (req, res) => {
         console.log(req.body);
     
-        ProductManager.create(req.body)
-          .then((newProductManagerObj) => {
-            console.log(newProductManagerObj);
+        Product.create(req.body)
+          .then((newProductObj) => {
+            console.log(newProductObj);
             // res.json is the equivalent of a return from the function
-            res.json(newProductManagerObj);
+            res.json(newProductObj);
           })
           .catch((err) => {
-            console.log("in ProductManager create");
+            console.log("in Product create");
             console.log(err);
             // res.json is the equivalent of a return from the function
             res.json( {

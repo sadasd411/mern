@@ -7,7 +7,14 @@ const ProductForm =() =>{
     const [description,setDescription] = useState("");
 
   const  onSubmitHandler = e => {
-
+    e.preventDefault();
+    axios.post('http://localhost:8000/api/createProduct', {
+        title,
+        price,
+        description
+    })
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
     }
 
     return(
@@ -15,15 +22,24 @@ const ProductForm =() =>{
             <h2>Product Manager</h2>
             <div>
                 <label>Title</label>
-                <input type = "text" />
+                <input type = "text"  
+                name ="title"
+                value ={title}
+                onChange={(e) => setTitle(e.target.value)}/>
             </div>
             <div>
                 <label>Price</label>
-                <input type = "text" />
+                <input type = "text" 
+                name ="price"
+                value ={price}
+                onChange ={(e) => setPrice(e.target.value)}/>
             </div>
             <div>
                 <label>Description</label>
-                <input type = "text" />
+                <input type = "text"
+                name ="description"
+                value ={description}
+                onChange = {(e) => setDescription(e.target.value)}/>
             </div>
             <div>
                

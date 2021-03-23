@@ -1,7 +1,8 @@
-const productManagerController = require('../controllers/productManager.controller')
+const productManagerController = require('../controllers/product.controller')
 
 module.exports = (app) => {
     app.get("/",productManagerController.helloworld);
     app.get("/api/allProducts", productManagerController.getAllProducts);
-    app.post("/api/createProduct", productManagerController.createProductManager);
+    app.get("/api/details/:id", productManagerController.getDetails);
+    app.post("/api/createProduct", productManagerController.createProduct);
 }
