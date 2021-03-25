@@ -1,17 +1,16 @@
-import ListAll from './components/ListAll';
-import New from './components/New';
 import Detail from './components/Details'
 import './App.css';
 import { Router } from '@reach/router';
+import ProductForm from './views/ProductForm';
 
 function App() {
   return (
     <div className="App">
+      
       <Router>
-       <New path ="/"/>
-      <ListAll  path ="/allProducts"/>
+      <ProductForm path ="/" />
       <Detail path ="/details/:id"/>
-      <New path ="/createProduct/:id"/>
+      
       </Router>
     </div>
   );

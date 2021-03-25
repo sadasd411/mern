@@ -40,9 +40,6 @@ const New = (props) => {
                     <input type = "Submit"  value="Create"/>
                 </div>
             </form>
-            <Link to ="/allProducts"> 
-            <p>All Products</p>
-            </Link>
             </div>
             )
     

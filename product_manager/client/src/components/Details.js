@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import{Link,Navigate} from '@reach/router';
+import{Link} from '@reach/router';
 import axios from 'axios';
 const Detail = (props) => {
     const [detail, setDetail] = useState({});
@@ -17,7 +17,7 @@ const Detail = (props) => {
             <p>Title:{detail.title} </p>
             <p>Price:{detail.price} </p>
             <p>Description:{detail.description}</p>
-            <Link to ="/allProducts">
+            <Link to ="/">
                 <button>Back</button>
             </Link>
         </div>
